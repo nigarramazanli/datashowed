@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<link rel="stylesheet" href="create.css">   
+<script src="./node_modules/axios/dist/axios.min.js" defer></script>
+
+</head>
+<body>
+    <div class="main_information_estate_Container">
+        <div class="main-container">
+            <div class="table-responsive">
+             
+                <table id="jsonTable" class="table table-bordered fl-table">
+                    <thead>
+                       
+    
+                     <tr>
+                         <th>Id</th>
+                         <th>Əmlak Növü</th>
+                         <th>Ərazi</th>
+                         <th>Layihə</th>
+                         <th>Layihə Təyinatı</th>
+                         <th>MTK</th>
+                         <th>Əmlakın Sənədi</th>
+                         <th>Mərtəbə</th>
+                         <th>Otaq Sayı</th>
+                         <th>Otaq Dəyişdirilib</th>
+                         <th>Mənbəsi</th>
+                         <th>Ünvan</th>
+                         <th>Sayt Name</th>
+                         <th>Sayt Id</th>
+                         <th>Təmir</th>
+                         <th>Təmirin Tipi</th>
+                         <th>Gaz</th>
+                         <th>Ev Əşyaları</th>
+                         <th>Qaraj</th>
+                         <th>Sahə</th>
+                         <th>Torpaq Sahəsi</th>
+                         <th>Ümumi Mərtəbə</th>
+                         <th>Note</th>
+                         <th>Agent İd</th>
+                         <th>Servis Haqqı</th>
+                         <th>Qiymət</th>
+                         <th>Hissə-hissə</th>
+                         <th>Kredit Var</th>
+                         <th>Credit Id</th>
+                         <th>Kredit Müddəti</th>
+                         <th>İlkin Ödəniş</th>
+                         <th>Aylıq Ödəniş</th>
+                         <th>Yaranma Tarixi</th>
+                         <th>Yenilənmə Tarixi</th>
+                         <th>Silinmə Tarixi</th>
+                         <th>Satış Tarixi</th>
+                         <th>Yaradılmış User İd</th>
+                         <th>Yenilənmiş User İd</th>
+                         <th>Qeydin Silinmə Səbəbi</th>
+                         <th>Filial İd</th>
+                         <th>Deaktiv</th>
+                         <th>Eksluziv</th>
+                         
+                         
+             
+                     </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    
+                    </tbody>             </table>
+            </div>
+    
+            
+            <div id="selectedRowBody">
+                <div class="changeIcons">
+                    <div id="seeAndChange_button">
+                        <div class="box-1">
+                            <div class="btn btn-one">
+                              <span>Id</span>
+                            </div>
+                          </div>
+                      </div>
+                    <div id="axtaris_page_button">
+                        <div class="box-1">
+                            <div class="btn btn-one">
+                                <img src="file:///C:/Users/ASUS/Downloads/3069190_search_research_icon.svg" alt="">
+                              <span>Axtaris</span>
+                            </div>
+                          </div>
+                    </div>
+                    <div></div>
+                    
+                    
+                    
+                </div>
+                <div id="search_page">
+                    <div class="input_search_field">
+                        <div class="left_search_page_side">
+                            <div class="left_search_label">
+                               <label for="searchDate">Id</label>
+                               <label for="searchHome">Əmlakın Növü</label>
+                               <label for="searchErazi">Ərazi</label>
+                               <label for="searchLayihe">layihə</label>
+                               <label for="searchLayiheTeyinati">Layihə Təyinatı</label>
+                               <label for="searchMtk">Mtk</label>
+                               <label for="searchEmlakSenedi">Əmlakın Sənədi</label>
+                               
+                            </div>
+                            <div class="left_search_input">
+                                <input type="text" id="searchDate" placeholder="">
+                                <input type="text" id="searchHome" placeholder="">
+                                <input type="text" id="searchErazi" placeholder="">
+                                <input type="text" id="searchLayihe" placeholder="">
+                                <input type="text" id="searchLayiheTeyinati" placeholder="">
+                                <input type="text" id="searchMtk" placeholder="">
+                                <input type="text" id="searchEmlakSenedi" placeholder="">
+                            </div>
+                           
+                        </div>
+                        <div class="right_search_page_side">
+                            <div class="right_search_label">
+                                <label for="searchMertebe">Mərtəbə</label>
+                                <label for="searchOtaqSayi">Otaq Sayı</label>
+                                <label for="searchOtaqDeyisdirilib">Otaq Dəyişdirilib</label>
+                                <label for="searchUnvan">Ünvan</label>
+                                <label for="searchTemirType">Təmir Tipi</label>
+                                <label for="searchSahe">Sahə</label>
+                                <label for="searchPrice">Qiymət</label>
+        
+                            </div>
+                            <div class="right_search_input">
+                                <input type="number" id="searchMertebe" placeholder="">
+                                <div class="otaq_sayi_input">
+                                    <input type="number" id="searchOtaqSayiMin" placeholder="Min Otaq Sayi">
+                                    <input type="number" id="searchOtaqSayiMax" placeholder="Max Otaq Sayi">                        
+                                </div>
+                                
+                                <input type="text" id="searchOtaqDeyisdirilib" placeholder="">
+                                <input type="text" id="searchUnvan" placeholder="">
+                                <input type="text" id="searchTemirType" placeholder="">
+                                <div class="sahe_search_input">
+                                    <input type="number" id="searchSaheMin" placeholder="Min Sahə">
+                                    <input type="number" id="searchSaheMax" placeholder="Max Sahə">                        
+                                </div>
+                                <div class="qiymet_search_input">
+                                    <input type="number" id="searchPriceMin" placeholder="Min Qiymət">
+                                    <input type="number" id="searchPriceMax" placeholder="Max Qiymət">                        
+                                </div>
+                                
+                            </div>
+                              
+                       
+                        </div>
+                    </div>
+                    <div class="radio_search_field">
+                        <div class="radio_search_left_field">
+                            <div class="images_left_container">
+                                <img src="file:///C:/Users/ASUS/Downloads/8680090_fire_fill_icon.svg" alt="">
+                                <img src="file:///C:/Users/ASUS/Downloads/8961089_garage_smart%20home_smart%20garage_building_icon.svg" alt="">
+                                <img src="file:///C:/Users/ASUS/Downloads/1378841_fireplace_house_fire_home_interior_icon.svg" alt="">
+                                <img src="file:///C:/Users/ASUS/Downloads/172473_globe_global_internet_icon.svg" alt="">
+                            </div>
+                            <div class="labels_left_container">
+                                <label for="gas">Qaz</label>
+                                <label for="qaraj">Qaraj</label>
+                                <label for="evEsyalari">Əşya</label>
+                                <label for="menbe">Mənbə</label>
+    
+                            </div>
+                            <div class="radios_left_side">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="gas" value="Bəli" id="gasVar"> Bəli
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="gas" value="Xeyr" id="gasYox"> Xeyr
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="gas" value="Seçilməyib" id="gasSecilmeyib"> Seçilməyib
+        
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input type="radio" name="qaraj" value="Bəli" id="garageVar"> Bəli
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qaraj" value="Xeyr" id="garageYox"> Xeyr
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qaraj" value="Seçilməyib" id="garageSecilmeyib"> Seçilməyib
+        
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input type="radio" name="evEsyalari" value="Bəli" id="esyalarVar"> Bəli
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="evEsyalari" value="Xeyr" id="esyalarYox"> Xeyr
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="evEsyalari" value="Seçilməyib" id="esyalarSecilmeyib"> Seçilməyib
+        
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input type="radio" name="menbe" value="Sayt" id="menbeVar"> Sayt
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="menbe" value="Agent" id="menbeYox"> Agent
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="menbe" value="Yenileme" id="menbeSecilmeyib"> Yenileme
+    
+        
+                                    </label>
+                                </div>
+                            </div>                      
+                        </div>
+                        <div class="radio_search_right_field">
+                            <div class="images_right_container">
+                                <img src="file:///C:/Users/ASUS/Downloads/3668833_maintenance_repair_service_icon.svg" alt="">
+                                <img src="file:///C:/Users/ASUS/Downloads/6586101_analytics_chart_diagram_pie_icon%20(1).svg" alt="">
+                            </div>
+                            <div class="labels_right_container">
+                                <label for="temir">Təmir</label>
+                                <label for="hisse_hisse">Hissə-Hissə</label>
+                            </div>
+                            <div class="radios_right_side">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="temir" value="Bəli" id="temirVar"> Bəli
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="temir" value="Xeyr" id="temirYox"> Xeyr
+                                    </label>    
+                             </div>
+                                <div>
+                                    <label>
+                                        <input type="radio" name="hisse_hisse" value="Bəli" id="hisseVar"> Bəli
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="hisse_hisse" value="Xeyr" id="hisseYox"> Xeyr
+                                    </label>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                  
+                </div>
+                <div id="id_page">
+                    <div id="selectsAndRadiosContainer1">
+                        <div id="leftContainer">
+                            <div id="leftLabelContainer"></div>
+                            <div id="leftSelectContainer"></div>
+                            <div id="leftSpanContainer"></div>
+                        </div>
+                         <div id="leftlabelsofRadios">
+        
+                         </div>
+                         <div id="leftImages">
+        
+                         </div>
+                         <div id="leftradioInputs">
+        
+                         </div>
+                    </div>
+                    
+                    <div id="selectsAndRadiosContainer2">
+                        <div id="rightContainer">
+                            <div id="rightLabelContainer"></div>
+                            <div id="rightSelectContainer"></div>
+                            <div id="rightSpanContainer"></div>
+                        </div>
+                            <div id="rightlabelsofRadios">
+        
+                            </div>
+                            <div id="rightImages">
+           
+                            </div>
+                            <div id="rightradioInputs">
+                            </div>
+        
+                    </div>
+                    <div id="selectsAndRadiosContainer3">
+                        <div id="change_button_id">
+                            <div id="temirChangeButton" class="active">
+                                <div class="box-1">
+                                    <div class="btn btn-one">
+                                        <img src="file:///C:/Users/ASUS/Downloads/9104230_information_info_data_help_icon%20(1).svg" alt="">
+                                    </div>
+                                  </div>
+                            </div>
+                            <div id="creditChangeButton">
+                                <div class="box-1">
+                                    <div class="btn btn-one">
+                                        <img src="file:///C:/Users/ASUS/Downloads/2124231_card_essential_app_credit_icon.svg" alt="">
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div id="changeContainer">
+        
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+    
+                
+                
+                  
+                    
+                </div>
+        
+            
+                
+             
+            </div>
+    </div>
+    
+
+    
+    
+    <script src="create.js"></script>
+    
+</body>
+</html>
